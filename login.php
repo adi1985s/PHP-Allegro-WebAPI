@@ -6,9 +6,11 @@ require_once('wsdl.php');
 
 $country			  = 1;	 
 $query_allegro_webapi = 3;
-$allegro_login	      = $_POST['user_login'];
-$allegro_pass	      = base64_encode( hash('sha256', $_POST['user_password'], true));
-$allegro_key 		  = $_POST['user_key'];
+$allegro_login	      = trim( $_POST['user_login'] );
+$allegro_pass	      = base64_encode( hash('sha256', trim( $_POST['user_password'] ), true))  ;
+$allegro_key 		  = trim( $_POST['user_key'] );
+
+$_SESSION['key']      = $allegro_key;
 
 if ( isset($_POST['sandbox_check']) ){
 	$_SESSION['sandbox_check'] = true;

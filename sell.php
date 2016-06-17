@@ -30,7 +30,6 @@ if(!isset($_SESSION['logged']))
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
   </head>
 
@@ -60,12 +59,12 @@ if(!isset($_SESSION['logged']))
       </div>
     </nav>
 
-    <div class="container-fluid">
+<div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="panel.php">Panel</a></li>
-            <li><a href="sell.php">Sprzedaję</a></li>
+            <li><a href="panel.php">Panel</a></li>
+            <li  class="active"><a href="sell.php">Sprzedaję</a></li>
             <li><a href="#">Analytics</a></li>
           </ul>
           <ul class="nav nav-sidebar">
@@ -81,7 +80,23 @@ if(!isset($_SESSION['logged']))
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 
+<?php
 
+$sell = $client -> doMyAccount2( array(
+    'sessionHandle' => $session_handle,
+    'accountType' => 'sell',
+    'offset' => 0,
+    'itemsArray' => array(),
+    'limit' => 10
+    )
+);
+
+print_r ($sell);
+echo "<br><hr><br>";
+
+print_r ( $sell->myaccountList->item ); //->item[0]
+
+?>
 
         </div>
       </div>

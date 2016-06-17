@@ -54,22 +54,22 @@ if(!isset($_SESSION['logged']))
             <li><a href="logout.php">Wyloguj</a></li>
           </ul>
           <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
+            <input type="text" class="form-control" placeholder="Search..." id="search_field">
           </form>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid">
+  <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="panel.php">Panel</a></li>
+            <li><a href="panel.php">Panel</a></li>
             <li><a href="sell.php">Sprzedaję</a></li>
             <li><a href="#">Analytics</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="fids.php">Lista FID-ów</a></li>
+            <li  class="active"><a href="fids.php">Lista FID-ów</a></li>
             <li><a href="">Nav item again</a></li>
 
           </ul>
@@ -79,8 +79,33 @@ if(!isset($_SESSION['logged']))
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Lista FID-ów</h1>
 
+
+<?php
+$list_arr = $client->doGetSellFormFieldsExt(array( 
+                                    'countryCode' => 1,
+                                    'localVersion' => 0,
+                                    'webapiKey' => $_SESSION['key'] ) ) -> sellFormFields->item ;
+print_r( $list[0] );
+
+echo '<table class= "table table-striped" id="fid_table">';  
+echo '<thead><tr class="t_head"> <th>Numer FIDa</th>   <th>Opis pola</th>  </tr></thead>';
+
+    foreach ( $list_arr as $item) {
+        
+        print_r ( '<tr><td>'.$item->sellFormId.'</td>
+                       <td>'.$item->sellFormTitle."</td>
+                   </tr>");
+    }
+    
+echo '</table>';
+
+// Metoda pozwala na pobranie listy pól formularza sprzedaży dostępnych we wskazanym kraju. 
+// Wybrane pola mogą następnie posłużyć np. do zbudowania i wypełnienia formularza 
+// wystawienia nowej oferty z poziomu metody doNewAuctionExt.
+
+?>
 
 
         </div>
@@ -88,6 +113,7 @@ if(!isset($_SESSION['logged']))
     </div>
 
     
-    
+    <script type="text/javascript" src="js/jquery3.js"></script>
+    <script type="text/javascript" src="js/fid_search.js"></script>
     </body>
 </html>
