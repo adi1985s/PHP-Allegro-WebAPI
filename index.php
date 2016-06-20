@@ -28,7 +28,7 @@ session_start();
 	
 		<div class="checkbox">
           <label>
-            <input type="checkbox" name ="sandbox_check"> Zalgouj do sandboxa.
+            <input type="checkbox" name ="sandbox_check"> Zaloguj do sandboxa.
           </label>
         </div>
       
