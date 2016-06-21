@@ -1,0 +1,31 @@
+echo "<td>".$item->myAccountArray->item[0]."</td>"  ; // numer oferty
+    echo "<td>".$item->myAccountArray->item[1]."</td>"  ; // cena wywoławcza
+    echo "<td>".$item->myAccountArray->item[2]."</td>"  ; // obecna cena
+    echo "<td>".$item->myAccountArray->item[3]."</td>"  ; // cena minimalna
+    echo "<td>".$item->myAccountArray->item[4]."</td>"  ; // cena Kup Teraz
+    echo "<td>".$item->myAccountArray->item[5]."</td>"  ; // początkowa liczba dostępnych
+    echo "<td>".$item->myAccountArray->item[6]."</td>"  ; // czas rozpoczęcia
+    echo "<td>".$item->myAccountArray->item[7]."</td>"  ; // czas zakończenia
+    echo "<td>".$item->myAccountArray->item[8]."</td>"  ; // highest bider
+    echo "<td>".$item->myAccountArray->item[9]."</td>"  ; // title
+    echo "<td>".$item->myAccountArray->item[10]."</td>" ; // liczba złożonych ofert kupna
+    echo "<td>".$item->myAccountArray->item[11]."</td>" ; // liczba złożonych ofert kupna
+
+    echo "<td>".$item->myAccountArray->item[13]."</td>" ; // wybranych opcjach dodatkowych (więcej)
+    echo "<td>".$item->myAccountArray->item[14]."</td>" ; // maksymalna oferowana przez użytkownika
+    echo "<td>".$item->myAccountArray->item[15]."</td>" ; // maksymalna cena oferowana za przedmiot
+    echo "<td>".$item->myAccountArray->item[16]."</td>" ; // tej pory nie zostały sprzedane, ale jeszcze mogą zostać sprzedane (dot. ofert trwających)
+    echo "<td>".$item->myAccountArray->item[17]."</td>" ; // liczba przedmiotów, które zostały do tej pory sprzedane (dot. ofert trwających)
+    echo "<td>".$item->myAccountArray->item[18]."</td>" ; // liczba przedmiotów, które zostały do tej pory sprzedane (dot. ofert trwających)
+    echo "<td>".$item->myAccountArray->item[19]."</td>" ; // liczba sprzedanych przedmiotów (dot.  zakończonych),
+    echo "<td>".$item->myAccountArray->item[20]."</td>" ; // liczba niesprzedanych przedmiotów (dot. ofert zakończonych)
+    echo "<td>".$item->myAccountArray->item[21]."</td>" ; // nazwa kupującego
+    echo "<td>".$item->myAccountArray->item[22]."</td>" ; // liczba punktów kupującego
+
+    echo "<td>".$item->myAccountArray->item[24]."</td>" ; // nazwa sprzedającego,
+    echo "<td>".$item->myAccountArray->item[25]."</td>" ; // liczba punktów sprzedającego
+
+    echo "<td>".$item->myAccountArray->item[27]."</td>" ; // liczba osób obserwujących aukcję (lub NULL w przypadku braku obserwujących),
+    echo "<td>".$item->myAccountArray->item[28]."</td>" ; // informacja o tym, czy w ofercie włączona  jest opcja Kup Teraz! (1 - jest, 0 - nie jest),
+    echo "<td>".$item->myAccountArray->item[33]."</td>" ; // liczba wyświetleń oferty,
+    echo "<td>".$item->myAccountArray->item[37]."</td>" ; // SA (1 - jest, 0 - nie_
