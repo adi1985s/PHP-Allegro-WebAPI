@@ -2,7 +2,6 @@
 
 session_start();
 require_once('wsdl.php');
-#header('location: index.php');
 
 $country			  = 1;	 
 $query_allegro_webapi = 3;
@@ -15,8 +14,12 @@ $_SESSION['key']      = $allegro_key;
 if ( isset($_POST['sandbox_check']) ){
 	$_SESSION['sandbox_check'] = true;
 	$_SESSION['wsdl'] = SANDBOX_WSDL;
+	$_SESSION['auction_path'] = 'http://allegro.pl.webapisandbox.pl/show_item.php?item=';
+	
 } else {
 	$_SESSION['wsdl'] = ALLEGRO_WSDL;	
+	$_SESSION['auction_path'] = 'http://allegro.pl/show_item.php?item=';
+	
 }
 
 try{

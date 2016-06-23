@@ -1,3 +1,20 @@
+<?php 
+$auction_path = $_SESSION['auction_path'];
+
+if(!isset($_SESSION['logged']))
+    header('location: index.php');
+    
+    $version_key     = $_SESSION['verKey'];
+    $session_handle  = $_SESSION['session_key']; 
+    
+	$client = new SoapClient( $_SESSION['wsdl'] ); // new WSDL
+	
+  $user = $client -> doGetMyData(array('sessionHandle' => $session_handle));
+  $username = $user->userData->userLogin;
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -20,7 +37,6 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -46,7 +62,7 @@
           <ul class="nav nav-sidebar">
             <li><a href="panel.php">Panel</a></li>
             <li><a href="sell.php">Sprzedaję</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="sold.php">Sprzedane</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="fids.php">Lista FID-ów</a></li>

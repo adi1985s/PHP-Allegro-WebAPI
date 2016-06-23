@@ -1,3 +1,16 @@
-.fid_odd:nth-child(odd){
-   background: #f4f4f4;
+.miniaturka{
+    height: 80px;
+    width: 80px;
+}
+.aList{
+    list-style: none
+}
+.aListItem{
+    list-style: none;
+    text-align: center;
+}
+
+.table th{
+    background: #f4f4f4;
+    text-align: center;
 }

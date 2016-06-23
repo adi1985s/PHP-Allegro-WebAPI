@@ -2,26 +2,9 @@
 
 session_start();
 require_once('wsdl.php');
+include 'includes/header.php'; ?>
 
-if(!isset($_SESSION['logged']))
-    header('location: index.php');
-    
-    $version_key     = $_SESSION['verKey'];
-    $session_handle  = $_SESSION['session_key']; 
-    
-	$client = new SoapClient( $_SESSION['wsdl'] ); // new WSDL
-	
-  $user = $client -> doGetMyData(array('sessionHandle' => $session_handle));
-  $username = $user->userData->userLogin;
-   
-
-
-?>
-
-<?php include 'includes/header.php'; ?>
-
-  <h1 class="page-header">Lista FID-ów</h1>
-
+<h1 class="page-header">Lista FID-ów</h1>
 
 <?php
 $list_arr = $client->doGetSellFormFieldsExt(array( 

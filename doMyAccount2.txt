@@ -1,4 +1,3 @@
-echo "<td>".$item->myAccountArray->item[0]."</td>"  ; // numer oferty
     echo "<td>".$item->myAccountArray->item[1]."</td>"  ; // cena wywoławcza
     echo "<td>".$item->myAccountArray->item[2]."</td>"  ; // obecna cena
     echo "<td>".$item->myAccountArray->item[3]."</td>"  ; // cena minimalna
@@ -10,7 +9,7 @@ echo "<td>".$item->myAccountArray->item[0]."</td>"  ; // numer oferty
     echo "<td>".$item->myAccountArray->item[9]."</td>"  ; // title
     echo "<td>".$item->myAccountArray->item[10]."</td>" ; // liczba złożonych ofert kupna
     echo "<td>".$item->myAccountArray->item[11]."</td>" ; // liczba złożonych ofert kupna
-
+    
     echo "<td>".$item->myAccountArray->item[13]."</td>" ; // wybranych opcjach dodatkowych (więcej)
     echo "<td>".$item->myAccountArray->item[14]."</td>" ; // maksymalna oferowana przez użytkownika
     echo "<td>".$item->myAccountArray->item[15]."</td>" ; // maksymalna cena oferowana za przedmiot
@@ -27,5 +26,48 @@ echo "<td>".$item->myAccountArray->item[0]."</td>"  ; // numer oferty
 
     echo "<td>".$item->myAccountArray->item[27]."</td>" ; // liczba osób obserwujących aukcję (lub NULL w przypadku braku obserwujących),
     echo "<td>".$item->myAccountArray->item[28]."</td>" ; // informacja o tym, czy w ofercie włączona  jest opcja Kup Teraz! (1 - jest, 0 - nie jest),
+   
+   
+   
+   
     echo "<td>".$item->myAccountArray->item[33]."</td>" ; // liczba wyświetleń oferty,
     echo "<td>".$item->myAccountArray->item[37]."</td>" ; // SA (1 - jest, 0 - nie_
+    
+    echo "<td>".$item->myAccountArray->item[0]."</td>"  ; // numer oferty
+    
+    
+    
+    
+    * więcej 
+    
+1 - oferta jest promowana przez pogrubienie tytułu na listingach,
+2 - oferta jest promowana przez wyróżnienie na listingach,
+4 - oferta jest promowana przez miniaturkę wyświetlaną na listingach,
+8 - oferta sklepowa,
+16 - oferta została usunięta przez administratora serwisu,
+32 - wskazanie na fakt, że koszty przesyłki pokrywa kupujący,
+64 - wskazanie na fakt, że koszty przesyłki pokrywa sprzedający,
+128 - wybrana forma płatności: zwykły przelew,
+256 - wybrana forma płatności: płatność przy odbiorze,
+512 - oferta jest promowana na stronie działu
+1024 - maska zdezaktualizowana (zawsze wyłączona),
+2048 - maska zdezaktualizowana (zawsze wyłączona),
+4096 - maska zdezaktualizowana (zawsze wyłączona),
+8192 - oferta jest promowana na stronie głównej,
+16384 - sprzedający zgadza się na wysyłkę za granicę,
+32768 - podano dodatkowe informacje o przesyłce i płatności,
+65536 - oferta została utworzona z czasem do wystawienia w przyszłości,
+131072 - oferta została wystawiona za pośrednictwem WebAPI,
+262144 - oferta jest promowana przez podświetlenie na listingach,
+524288 - oferta jest promowana na stronie kategorii,
+1048576 - oferta prywatna,
+2097152 - oferta jest ogłoszeniem wystawionym na otoMoto.pl,
+4194304 - wybrana opcja dostawy: przesyłka pocztowa ekonomiczna,
+8388608 - wybrana opcja dostawy: przesyłka pocztowa priorytetowa,
+16777216 - wybrana opcja dostawy: przesyłka kurierska,
+33554432 - wybrana opcja dostawy: odbiór osobisty,
+67108864 - maska zdezaktualizowana (zawsze włączona).
+134217728 - przedmioty w ramach oferty są sprzedawane w kompletach,
+268435456 - oferta będzie wznowiona z pełnym zestawem przedmiotów,
+536870912 - oferta będzie wznowiona tylko z niesprzedanymi przedmiotami,
+1073741824 - oferta jest oznaczona jako "Standard Allegro",

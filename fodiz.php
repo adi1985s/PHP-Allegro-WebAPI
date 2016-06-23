@@ -6,6 +6,13 @@ include 'includes/header.php';
 
 ?>
 
-<h1 class="page-header">Dashboard</h1>
+<h1 class="page-header">Sprzedaję</h1>
+
+<?php
+
+$buyer_id = $_GET['buyer_id'];
+echo $buyer_id;
+
+?>
 
 <?php include 'includes/footer.php'; ?>
