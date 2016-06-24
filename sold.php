@@ -54,9 +54,20 @@ include('doMyAccount2.php');
        'getProductInfo' => 0
     )) -> arrayItemListInfo->item->itemImages->item[0]->imageUrl;
     
+// try{
 
-    //$endingTime = $client-> doGetBidItem2();
-//print_r($endingTime);
+//     $buyer_ = $client -> doGetBidItem2(array(
+//       'sessionHandle' => $session_handle,
+//       'itemId' => $id
+//       )
+//     )->biditemList->item;
+    
+    
+//     print_r ( $buyer_ );
+//     echo "<HR>";
+// }
+
+// catch (Exception $x){}
 
                     echo "<tr>";
                     echo "<td><input type='checkbox'></td>"  ; 
@@ -76,10 +87,10 @@ else                echo "<li class='aListItem'><strong>".$title."</strong></li>
                     
                     // Cena
                     echo "<td><ul class='aList'>";
-if(!$cena_wywolawcza)echo "<li class='aListItem'><strong>Wywoławcza:</strong>&nbsp;".$cena_wywolawcza."</li>"  ; 
-if(!$cena_minimalna) echo "<li class='aListItem'><strong>Minimalna:</strong>&nbsp".$cena_minimalna."</li>"  ; 
-if(!$cena_obecna)    echo "<li class='aListItem'><strong>Obecna:</strong>&nbsp".$cena_obecna."</li>"  ; 
-if($has_kt)    echo "<li class='aListItem'><strong>Kup&nbspteraz:</strong>&nbsp".$cena_kt."&nbsp;zł</li>"  ;
+if(!$cena_wywolawcza)echo "<li class='aListItem'><strong>Wywoławcza:</strong>&nbsp;".$cena_wywolawcza." zł</li>"  ; 
+if(!$cena_minimalna) echo "<li class='aListItem'><strong>Minimalna:</strong>&nbsp".$cena_minimalna." zł</li>"  ; 
+if(!$cena_obecna)    echo "<li class='aListItem'><strong>Obecna:</strong>&nbsp<span class='cena_obecna'>".$cena_obecna."</span> zł</li>"  ; 
+if($has_kt)    echo "<li class='aListItem'><strong>Kup&nbspteraz:</strong>&nbsp<span class='cena_kt'>".$cena_kt."</span>&nbsp;zł</li>"  ;
                     echo "</ul></td>";
                 
                     // Czas trwania
@@ -91,7 +102,7 @@ if($has_kt)    echo "<li class='aListItem'><strong>Kup&nbspteraz:</strong>&nbsp"
 
                     // Sprzedano
                     echo "<td><ul class='aList'>";
-                    echo "<li class='aListItem'>".$sprzedano." z ".$liczb_start."</li>"; // Sprzedano
+                    echo "<li class='aListItem'><span class='sprzedano'>".$sprzedano."</span> z ".$liczb_start."</li>"; // Sprzedano
                     
                     // Dropdown 
                     echo "<li class='aListItem'>";
@@ -104,9 +115,16 @@ if($has_kt)    echo "<li class='aListItem'><strong>Kup&nbspteraz:</strong>&nbsp"
                            ;
                         
                         foreach ( $lista_kupujacych as $buyer){
+                            if ( is_array($buyer -> item) ){ // jeśli w ofercie jest jeden kupujący, otrzymamy od razu tablicę
+                            $buyer_id = $buyer->item[1];
+                            $buyer_login = $buyer->item[2];
+                            }
+                            else{ // jeśli w ofercie jest więcej kupujących, otrzymany obiekt z tablicami
                             $buyer_id = $buyer->bidsArray->item[1];
                             $buyer_login = $buyer->bidsArray->item[2];
-                        echo "<li class='aListItem'><a href='fodiz.php?buyer_id=".$buyer_id."'>".$buyer_login."</a></li>";
+                            }
+                            
+                        echo "<li class='aListItem'><a href='fodiz.php?buyer_id=".$buyer_id."&offer_id=".$id."'>".$buyer_login."</a></li>";
                         }
                     } catch (Exception $e) {}    
                     echo "</ul></div>";
@@ -116,10 +134,19 @@ if($has_kt)    echo "<li class='aListItem'><strong>Kup&nbspteraz:</strong>&nbsp"
             
 }
 
-
 ?>
+
 </table>      
 
-
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--            <p class="text-center">-->
+<!--                Wartość sprzedanych: <span id="wielkosc_sprzedazy"></span>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <?php include 'includes/footer.php'; ?>
+<!--<script type="text/javascript" src="js/wielkosc_sprzedazy.js"></script>-->
